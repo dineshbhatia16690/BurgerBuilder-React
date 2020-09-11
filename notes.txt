@@ -1,0 +1,6 @@
+
+
+Setting up the Project:
+- Eject css modules (npm run eject)
+- Clean up extra files
+- Set up font and title for the project
