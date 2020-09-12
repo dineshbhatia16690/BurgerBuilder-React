@@ -13,4 +13,9 @@ Starting implementation of the Burger Builder Container:
 - Added a layout.css file which will have the underneath layout.
 - Changed webpack.config.js to enable css modules.
 
+Adding a dynamic Ingredient component and add prop type:
+- Added a ingredient component.
+- Added prop-types package using "npm install --save prop-types"
+
+
 
