@@ -8,3 +8,9 @@ Setting up the Project:
 Creating a layout Component:
 - Structurized the project and created a simple layout adding toolbar, sidebar and backdrop.
 - Since we don't have the navigation yet, so the focus is to develop the core functionality.
+
+Starting implementation of the Burger Builder Container:
+- Added a layout.css file which will have the underneath layout.
+- Changed webpack.config.js to enable css modules.
+
+
