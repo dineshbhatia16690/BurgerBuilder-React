@@ -20,3 +20,8 @@ Adding a dynamic Ingredient component and add prop type:
 Starting the Burger component:
 - Added the burger component and hardcoded ingredients.
 
+Outputting Burger Ingredient Dynamically:
+- Added ingredients to state to dynamically add them.
+- Added transformed ingredient variable in Burger.js which essentially transforms the js object of values into array which
+  contains values(ingredient) as many times as the quantity.
+
