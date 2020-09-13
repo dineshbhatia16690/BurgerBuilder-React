@@ -29,3 +29,5 @@ Calculating the Ingredient sum Dynamically:
 - Takes care of showing a message to add ingredients if there is no ingredient or value 0 for each ingredient.
 - Does so by using flattening the array so that all inner arrays elements are extracted in one array.
 
+Adding the build control component:
+- Adds styling for build control component, the label, buttons, etc.
