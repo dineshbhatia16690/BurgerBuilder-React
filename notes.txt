@@ -25,3 +25,7 @@ Outputting Burger Ingredient Dynamically:
 - Added transformed ingredient variable in Burger.js which essentially transforms the js object of values into array which
   contains values(ingredient) as many times as the quantity.
 
+Calculating the Ingredient sum Dynamically:
+- Takes care of showing a message to add ingredients if there is no ingredient or value 0 for each ingredient.
+- Does so by using flattening the array so that all inner arrays elements are extracted in one array.
+
