@@ -17,5 +17,6 @@ Adding a dynamic Ingredient component and add prop type:
 - Added a ingredient component.
 - Added prop-types package using "npm install --save prop-types"
 
-
+Starting the Burger component:
+- Added the burger component and hardcoded ingredients.
 
