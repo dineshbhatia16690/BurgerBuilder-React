@@ -34,3 +34,8 @@ Adding the build control component:
 
 Outputting the multiple build controls:
 - Added build control buttons and shows all the build controls components together.
+
+Connecting state to Build Controls:
+- Added a method to addIngredients
+- Updated all the components to accommodate more button function
+- Linked more button functionality
