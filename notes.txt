@@ -58,5 +58,7 @@ Creating the order summary:
 - Created a Modal component which will contain the modal to wrap the order summary with.
 - Created an order summary component which shows the summary of what user has selected in the burger
 
+Showing and Hiding the modal with Animation:
+- Makes use of the animation to show Order summary on click of Order now button
 
 

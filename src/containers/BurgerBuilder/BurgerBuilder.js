@@ -23,7 +23,8 @@ class BurgerBuilder extends Component {
             meat: 0
         },
         totalPrice: 4,
-        purchasable: false
+        purchasable: false,
+        purchasing: false
     }
 
     // the reason we are passing totalPrice in this and not checking from state is
@@ -64,6 +65,12 @@ class BurgerBuilder extends Component {
         this.updatePurchaseState(totalPriceUpdated)
     }
 
+    // we have to create an arrow function here since it has access to state through "this" keyword
+    // In normal function this would not work(purchaseHandler() {..code})
+    purchaseHandler = () => {
+        this.setState({purchasing: true});
+    }
+
     render() {
         const disableButtonInfo = {...this.state.ingredients};
         for(let ingredientType in disableButtonInfo) {
@@ -71,7 +78,7 @@ class BurgerBuilder extends Component {
         }
         return (
             <Aux>
-                <Modal>
+                <Modal show={this.state.purchasing}>
                     <OrderSummary ingredients={this.state.ingredients}/>
                 </Modal>
                 <Burger ingredients = {this.state.ingredients}/>
@@ -80,6 +87,7 @@ class BurgerBuilder extends Component {
                 ingredientsRemoved={this.removeIngredientsHandler}
                 disableButton={disableButtonInfo}
                 purchasable={this.state.purchasable}
+                ordered={this.purchaseHandler}
                 currentPrice={this.state.totalPrice}/>
             </Aux>
         );
