@@ -1,4 +1,6 @@
-
+{......code is for normal function body}
+(......code is for functions returning JSX code)
+{ return (.....code) }
 
 Setting up the Project:
 - Eject css modules (npm run eject)
@@ -51,4 +53,10 @@ Displaying and Updating the burger price:
 Adding the order button:
 - Added Order button and linked it with no of items added(used total Price logic)
 - Only gets enabled if there is anything added in the burger
+
+Creating the order summary:
+- Created a Modal component which will contain the modal to wrap the order summary with.
+- Created an order summary component which shows the summary of what user has selected in the burger
+
+
 
