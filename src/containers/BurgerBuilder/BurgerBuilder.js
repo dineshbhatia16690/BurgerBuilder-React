@@ -20,7 +20,20 @@ class BurgerBuilder extends Component {
             cheese: 0,
             meat: 0
         },
-        totalPrice: 4
+        totalPrice: 4,
+        purchasable: false
+    }
+
+    // the reason we are passing totalPrice in this and not checking from state is
+    // because when we add or remove the ingredients, state may not have the most updated
+    // totalPrice.
+    updatePurchaseState(totalPrice) {
+        if (totalPrice > 4) {
+            this.setState({purchasable: true});
+        }
+        else {
+            this.setState({purchasable: false});
+        }
     }
 
     addIngredientsHandler = (type) => {
@@ -30,6 +43,7 @@ class BurgerBuilder extends Component {
 
         const totalPriceUpdated = this.state.totalPrice + INGREDIENT_ADD_ON_PRICE[type];
         this.setState({totalPrice: totalPriceUpdated, ingredients: updatedIngredients});
+        this.updatePurchaseState(totalPriceUpdated);
     }
 
     removeIngredientsHandler = (type) => {
@@ -45,6 +59,7 @@ class BurgerBuilder extends Component {
 
         const totalPriceUpdated = this.state.totalPrice - INGREDIENT_ADD_ON_PRICE[type];
         this.setState({totalPrice: totalPriceUpdated, ingredients: updatedIngredients});
+        this.updatePurchaseState(totalPriceUpdated)
     }
 
     render() {
@@ -59,6 +74,7 @@ class BurgerBuilder extends Component {
                 ingredientsAdded={this.addIngredientsHandler}
                 ingredientsRemoved={this.removeIngredientsHandler}
                 disableButton={disableButtonInfo}
+                purchasable={this.state.purchasable}
                 currentPrice={this.state.totalPrice}/>
             </Aux>
         );

@@ -48,3 +48,7 @@ Displaying and Updating the burger price:
 - Displayed Price of the burger too.
 - Also fixed the JS bug of decimals from a lot to use toFixed(2) method to use upto 2 decimal points.
 
+Adding the order button:
+- Added Order button and linked it with no of items added(used total Price logic)
+- Only gets enabled if there is anything added in the burger
+
