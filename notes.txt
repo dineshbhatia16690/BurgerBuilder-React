@@ -31,3 +31,6 @@ Calculating the Ingredient sum Dynamically:
 
 Adding the build control component:
 - Adds styling for build control component, the label, buttons, etc.
+
+Outputting the multiple build controls:
+- Added build control buttons and shows all the build controls components together.
