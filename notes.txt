@@ -39,3 +39,7 @@ Connecting state to Build Controls:
 - Added a method to addIngredients
 - Updated all the components to accommodate more button function
 - Linked more button functionality
+
+Remove Ingredients Safely:
+- Implemented logic for removing ingredients
+- Added disabling the less button functionality in case the ingredient is not added
