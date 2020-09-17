@@ -43,3 +43,8 @@ Connecting state to Build Controls:
 Remove Ingredients Safely:
 - Implemented logic for removing ingredients
 - Added disabling the less button functionality in case the ingredient is not added
+
+Displaying and Updating the burger price:
+- Displayed Price of the burger too.
+- Also fixed the JS bug of decimals from a lot to use toFixed(2) method to use upto 2 decimal points.
+
