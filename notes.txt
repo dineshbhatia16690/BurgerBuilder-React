@@ -61,4 +61,7 @@ Creating the order summary:
 Showing and Hiding the modal with Animation:
 - Makes use of the animation to show Order summary on click of Order now button
 
+Implementing the Backdrop Component:
+- Added backdrop for the modal
+
 
