@@ -64,4 +64,10 @@ Showing and Hiding the modal with Animation:
 Implementing the Backdrop Component:
 - Added backdrop for the modal
 
+Adding and Implementing a custom button component:
+- Added cancel and continue button on Order summary component.
+- Cancel button goes back to the main page and Continue button for now just shows an alert message.
+
+
+
 
