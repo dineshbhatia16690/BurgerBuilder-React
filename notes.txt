@@ -71,6 +71,10 @@ Adding and Implementing a custom button component:
 Adding the Price to the Summary:
 - Added the price to the order summary component
 
+Adding a toolbar:
+- Added a toolbar in layout, the toolbar will be there on all the pages so it has to be added on the root component
+
+
 
 
 
