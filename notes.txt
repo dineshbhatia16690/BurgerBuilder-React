@@ -95,6 +95,11 @@ More on Responsive Adjustments:
 - Adjusted Navigation Items to be responsive.
 - Used media query to override the styles for desktops.
 
+Reusing the backdrop:
+- Reused backdrop in the SideDrawer as well.
+- Added functionality to close the SideDrawer when clicked on the BackDrop.
+
+
 
 
 
