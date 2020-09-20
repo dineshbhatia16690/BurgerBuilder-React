@@ -91,6 +91,9 @@ Working on Responsive Adjustments:
     - b) We can wrap the Logo component with a div and add a Logo class everywhere we are using the Logo component.
          Keeping same name (Logo) class in diff components won't interfere with each other.
 
+More on Responsive Adjustments:
+- Adjusted Navigation Items to be responsive.
+- Used media query to override the styles for desktops.
 
 
 
