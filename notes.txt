@@ -85,6 +85,13 @@ Creating a responsive SideDrawer(for mobile/tablet devices):
 - Created a sideDrawer for Mobile devices
 - To verify select Mobile/Tablet on inspect tab in Chrome, the formatting is still to be done
 
+Working on Responsive Adjustments:
+- There is couple of ways to adjust the height of the logo depending on the device
+    - a) We can dynamically pass the height as a prop
+    - b) We can wrap the Logo component with a div and add a Logo class everywhere we are using the Logo component.
+         Keeping same name (Logo) class in diff components won't interfere with each other.
+
+
 
 
 

@@ -8,7 +8,9 @@ const toolbar = (props) => (
     // eslint-disable-next-line no-unused-expressions
     <header className={classes.Toolbar}>
         <div>MENU</div>
-        <Logo />
+        <div className={classes.Logo}>
+            <Logo />
+        </div>
         <nav>
             <NavigationItems />
         </nav>
