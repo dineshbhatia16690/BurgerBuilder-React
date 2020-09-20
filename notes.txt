@@ -99,7 +99,8 @@ Reusing the backdrop:
 - Reused backdrop in the SideDrawer as well.
 - Added functionality to close the SideDrawer when clicked on the BackDrop.
 
-
+Adding a SideDrawer Toggle Button:
+- Moved MENU to a DrawerToggle component for sideDrawer
 
 
 

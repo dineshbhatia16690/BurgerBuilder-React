@@ -3,11 +3,12 @@ import React from 'react';
 import classes from './Toolbar.css';
 import Logo from '../../Logo/Logo'
 import NavigationItems from '../NavigationItems/NavigationItems';
+import DrawerToggle from '../../Sidedrawer/DrawerToggle/DrawerToggle';
 
 const toolbar = (props) => (
     // eslint-disable-next-line no-unused-expressions
     <header className={classes.Toolbar}>
-        <div>MENU</div>
+        <DrawerToggle clicked={props.drawerToggleClicked}/>
         <div className={classes.Logo}>
             <Logo />
         </div>
