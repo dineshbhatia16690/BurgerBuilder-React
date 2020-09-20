@@ -77,5 +77,10 @@ Adding a toolbar:
 Adding a Logo:
 - Added a logo in the assets folder
 
+Adding reusable Navigation items:
+- Added Navigation bar on top with two options: Burger Builder and Checkout
+- Added the routing to the only page since we just have one as of now
+
+
 
 
