@@ -81,6 +81,10 @@ Adding reusable Navigation items:
 - Added Navigation bar on top with two options: Burger Builder and Checkout
 - Added the routing to the only page since we just have one as of now
 
+Creating a responsive SideDrawer(for mobile/tablet devices):
+- Created a sideDrawer for Mobile devices
+- To verify select Mobile/Tablet on inspect tab in Chrome, the formatting is still to be done
+
 
 
 
