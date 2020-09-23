@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 
 import classes from './Modal.css'
-import Aux from '../../../hoc/Aux';
+import Aux from '../../../hoc/Aux/Aux';
 import Backdrop from '../Backdrop/Backdrop';
 
 // We could have wrapped the export with React.memo which internally uses shouldComponentHook

@@ -117,6 +117,11 @@ Improving Performance:
 - Modal component has OrderSummary component which is one of those. So lets take care of that.
 - To verify the component was updated we can use componentWillUpdate or componentDidUpdate(depending on your JS version)
 
+Changing the Folder structure:
+- Moved Layout folder to hoc folder since Layout is just acting as a wrapper around components.
+- Its a fair argument that Layout could be part of container folder and both are correct.
+
+
 
 
 
