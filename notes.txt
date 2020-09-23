@@ -106,5 +106,31 @@ Adding a Hamburger Icon:
 - Added a css file for drawer toggle that has style for the div
 - A hamburger icon is basically nothing but a simple horizontal styled line, that's why we have 3 divs that makes it up.
 
+* We can add Prop type validation to our components, the reason it hasn't yet been added is because we are not using
+  any 3P library, but having Prop type validation is a good practice.
+
+Improving Performance:
+- There are some areas where we can add shouldComponentUpdate kind of hooks to avoid unnecessary re-rendering of
+  components.
+- Keep in mind that wrapping component has control over the wrapped components if they are to be updated or not since we
+  use shouldComponentUpdate in the wrapping component.
+- Modal component has OrderSummary component which is one of those. So lets take care of that.
+- To verify the component was updated we can use componentWillUpdate or componentDidUpdate(depending on your JS version)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
