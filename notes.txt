@@ -102,5 +102,9 @@ Reusing the backdrop:
 Adding a SideDrawer Toggle Button:
 - Moved MENU to a DrawerToggle component for sideDrawer
 
+Adding a Hamburger Icon:
+- Added a css file for drawer toggle that has style for the div
+- A hamburger icon is basically nothing but a simple horizontal styled line, that's why we have 3 divs that makes it up.
+
 
 
