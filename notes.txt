@@ -2,6 +2,23 @@
 (......code is for functions returning JSX code)
 { return (.....code) }
 
+Promises in JS:
+- Promise in JS: Watch this video(https://www.youtube.com/watch?v=vn3tm0quoqE)
+	- Event loop in browser and node JS runs on a single thread.
+	- On the first run it runs all synchronous operations and micro async tasks.
+	- Promises are better than callbacks(you get callback after completing an async task),
+	  in Promise you get a Promise object back after async task is finished. Better cleaner code.
+	- "async" and "await" are just syntactical sugar to the Promise. "async" returns a promise.
+	  Instead of that you can also use, "Promise.resolve(<your code>)".
+	- "await" should be used with "async"(only makes sense)
+	- (Imp.) .map() doesn't honor "await" keyword, it runs everything parallely, so use conventional "for" loop when
+	  you need to wait for a Promise to resolve on every element of a collection.
+	- If we call an async function that returns a Promise and that call gets rejected, we need to
+	  use await with that function call or use .catch right after that function call.
+	  For more info, check: https://itnext.io/error-handling-with-async-await-in-js-26c3f20bc06a
+
+================================= Project Burger Builder =================================
+
 Setting up the Project:
 - Eject css modules (npm run eject)
 - Clean up extra files
