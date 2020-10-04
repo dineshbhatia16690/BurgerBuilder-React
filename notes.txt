@@ -139,6 +139,22 @@ Changing the Folder structure:
 - Its a fair argument that Layout could be part of container folder and both are correct.
 
 
+**************** Accessing a server - Using Firebase as backend ****************
+
+Firebase - Free service from google that provides database, hosting, etc like services. Need google account to sign in and
+           create a firebase project and it gives you a URL to access the service, all you have to do is set the rules.
+           e.g. In our case set both read and write to true to allow reads and writes.
+           ProjectName: react-burger-builder092019
+           Firebase Link: firebase.google.com
+           Google Account Used: dinesh.bhatia690
+           Database Link: https://react-burger-builder092019.firebaseio.com/
+
+
+
+
+
+
+
 
 
 
