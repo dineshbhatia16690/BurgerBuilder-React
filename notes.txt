@@ -149,6 +149,9 @@ Firebase - Free service from google that provides database, hosting, etc like se
            Google Account Used: dinesh.bhatia690
            Database Link: https://react-burger-builder092019.firebaseio.com/
 
+Creating Axios Instance:
+- Install axios using 'npm install --save axios'.
+- Create axios-orders file to get the base url which is the url of the firebase db.
 
 
 
