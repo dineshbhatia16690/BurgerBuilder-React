@@ -5,6 +5,7 @@ import Burger from '../../components/Burger/Burger'
 import BuilderControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import Spinner from '../../components/UI/Spinner/Spinner';
 import axios from '../../axios-orders';
 
 const INGREDIENT_ADD_ON_PRICE = {
@@ -25,7 +26,8 @@ class BurgerBuilder extends Component {
         },
         totalPrice: 4,
         purchasable: false,
-        purchasing: false
+        purchasing: false,
+        loading: false
     }
 
     // the reason we are passing totalPrice in this and not checking from state is
@@ -78,6 +80,7 @@ class BurgerBuilder extends Component {
 
     purchaseContinueHandler = () => {
         // alert("Order Continued ...");
+        this.setState({loading: true})
         const customerOrder = {
             ingredients: this.state.ingredients,
             // price ideally should be calculated on the server side, so that no one can tweak with it in between the http call
@@ -97,8 +100,10 @@ class BurgerBuilder extends Component {
         // and a tree like structure will be created in firebase. Keep in mind '.json' is required, its unique to firebase.
 
         axios.post('/orders.json', customerOrder)
-            .then(response => console.log(response))
-            .catch(error => console.log(error));
+            .then(response => {
+                this.setState({loading: false, purchasing: false})
+            })
+            .catch(error => {this.setState({loading: false, purchasing: true})});
     }
 
     render() {
@@ -106,14 +111,17 @@ class BurgerBuilder extends Component {
         for(let ingredientType in disableButtonInfo) {
             disableButtonInfo[ingredientType] = disableButtonInfo[ingredientType] <=0;
         }
+        let orderSummary = <OrderSummary ingredients={this.state.ingredients}
+                                         orderCancelled={this.purchaseCancelHandler}
+                                         orderContinued={this.purchaseContinueHandler}
+                                         totalPrice={this.state.totalPrice}/>
+        if (this.state.loading) {
+            orderSummary = <Spinner />;
+        }
         return (
             <Aux>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>
-                    <OrderSummary ingredients={this.state.ingredients}
-                                  orderCancelled={this.purchaseCancelHandler}
-                                  orderContinued={this.purchaseContinueHandler}
-                                  totalPrice={this.state.totalPrice}/>
-
+                    {orderSummary}
                 </Modal>
                 <Burger ingredients = {this.state.ingredients}/>
                 <BuilderControls

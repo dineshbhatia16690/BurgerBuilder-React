@@ -157,6 +157,13 @@ Sending a POST request:
 - Implement functionality for sending a post request when pressed "Continue" on checkout.
 - Added '/orders.json' endpoint for checking out an order. (Check how record appears in Firebase)
 
+Displaying a Spinner while sending a request:
+- Added a spinner class(chose spinner css from https://projects.lukehaas.me/css-loaders/)
+- Updated Order summary to have spinner if the order is being checked out, since firebase call is super quick,
+  we barely get to see spinner in action.
+- Updated shouldComponentUpdate in Modal since spinner won't appear because our Modal was not getting updated
+  since we are using shouldComponentUpdate in Modal hook and update was only done if there is change on show prop and
+  in this case we are updating the child component.
 
 
 
