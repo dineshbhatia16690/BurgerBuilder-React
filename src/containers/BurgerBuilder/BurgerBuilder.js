@@ -5,6 +5,7 @@ import Burger from '../../components/Burger/Burger'
 import BuilderControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+import axios from '../../axios-orders';
 
 const INGREDIENT_ADD_ON_PRICE = {
     salad: 0.5,
@@ -76,7 +77,28 @@ class BurgerBuilder extends Component {
     }
 
     purchaseContinueHandler = () => {
-        alert("Order Continued ...");
+        // alert("Order Continued ...");
+        const customerOrder = {
+            ingredients: this.state.ingredients,
+            // price ideally should be calculated on the server side, so that no one can tweak with it in between the http call
+            price: this.state.totalPrice,
+            customer: {
+                name: 'Dinesh',
+                email: 'test@test.com',
+                address: {
+                    country: 'USA',
+                    street: 'test street',
+                    zipCode: '12345'
+                }
+            },
+            deliveryMethod: 'fastest'
+        }
+        // firebase provides mongo like db, so all we have to provide is '/endpoint-name.json' to the base URL
+        // and a tree like structure will be created in firebase. Keep in mind '.json' is required, its unique to firebase.
+
+        axios.post('/orders.json', customerOrder)
+            .then(response => console.log(response))
+            .catch(error => console.log(error));
     }
 
     render() {

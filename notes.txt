@@ -153,7 +153,9 @@ Creating Axios Instance:
 - Install axios using 'npm install --save axios'.
 - Create axios-orders file to get the base url which is the url of the firebase db.
 
-
+Sending a POST request:
+- Implement functionality for sending a post request when pressed "Continue" on checkout.
+- Added '/orders.json' endpoint for checking out an order. (Check how record appears in Firebase)
 
 
 
