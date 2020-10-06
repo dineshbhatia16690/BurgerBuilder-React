@@ -7,6 +7,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import axios from '../../axios-orders';
+import GlobalErrorHandler from '../../GlobalErrorHandler/GlobalErrorHandler';
 
 const INGREDIENT_ADD_ON_PRICE = {
     salad: 0.5,
@@ -136,4 +137,4 @@ class BurgerBuilder extends Component {
     }
 }
 
-export default BurgerBuilder;
+export default GlobalErrorHandler(BurgerBuilder, axios);

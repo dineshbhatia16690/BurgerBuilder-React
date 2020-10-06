@@ -165,6 +165,10 @@ Displaying a Spinner while sending a request:
   since we are using shouldComponentUpdate in Modal hook and update was only done if there is change on show prop and
   in this case we are updating the child component.
 
+Handling Errors:
+- Added a global error handler that gets any component and handles error on those and show the error message.
+- To see this change in action, change the "orders.json" to "orders" and try to place the order.
+
 
 
 
