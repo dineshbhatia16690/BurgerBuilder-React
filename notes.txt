@@ -169,6 +169,10 @@ Handling Errors:
 - Added a global error handler that gets any component and handles error on those and show the error message.
 - To see this change in action, change the "orders.json" to "orders" and try to place the order.
 
+Retrieving Data from Backend:
+- Added a axios get api call to retrieve the state ingredients dynamically from the firebase db at the start
+
+
 
 
 
