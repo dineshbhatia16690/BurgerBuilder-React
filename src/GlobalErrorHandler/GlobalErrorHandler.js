@@ -25,7 +25,6 @@ const globalErrorHandler = (WrappedComponent, axios) => {
         }
 
         componentWillUnmount() {
-            console.log('In componentWillUnmount hook ', this.requestInterceptor, this.responseInterceptor);
             axios.interceptors.request.use(this.requestInterceptor);
             axios.interceptors.response.use(this.responseInterceptor);
 
