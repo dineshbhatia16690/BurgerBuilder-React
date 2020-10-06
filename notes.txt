@@ -172,6 +172,14 @@ Handling Errors:
 Retrieving Data from Backend:
 - Added a axios get api call to retrieve the state ingredients dynamically from the firebase db at the start
 
+Removing Old Interceptors:
+- Using interceptors with global error handler can result in memory leak, since that global error handler could be
+  wrapped with multiple components and we are using the axios instance in componentWillMount which will run for each component
+  so the previous component's axios instance can interfere and cause memory leaks.
+- So to avoid that we need to eject those interceptors and there is a hook for that known as "ComponentWillUnmount".
+- To eject interceptors in functional component you can add the ejects in return statement of useEffect() hook.
+  (Made some changes to app.js to see ComponentWillUnmount in action, will be removed in next commit)
+
 
 
 

@@ -13,14 +13,22 @@ const globalErrorHandler = (WrappedComponent, axios) => {
         // or the constructor since if the get api call using axios fail our application will be broken and we will keep
         // seeing the spinner, to see that in action change this hook and remove .json from the get axios call
         componentWillMount() {
-            axios.interceptors.request.use(req => {
+            // store these interceptors into class variables to use them for ejection
+            this.requestInterceptor = axios.interceptors.request.use(req => {
                 this.setState({error: null});
                 return req;
             });
 
-            axios.interceptors.response.use(res => res, error => {
+            this.responseInterceptor = axios.interceptors.response.use(res => res, error => {
                 this.setState({error: error});
             });
+        }
+
+        componentWillUnmount() {
+            console.log('In componentWillUnmount hook ', this.requestInterceptor, this.responseInterceptor);
+            axios.interceptors.request.use(this.requestInterceptor);
+            axios.interceptors.response.use(this.responseInterceptor);
+
         }
 
         errorConfirmedHandler = () => {
