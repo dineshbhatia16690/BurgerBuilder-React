@@ -180,6 +180,42 @@ Removing Old Interceptors:
 - To eject interceptors in functional component you can add the ejects in return statement of useEffect() hook.
   (Made some changes to app.js to see ComponentWillUnmount in action, will be removed in next commit)
 
+******************************** What is Routing? ********************************
+- Routing is basically a way to route the user to different pages/components of the application on the basis of URL. e.g.
+ /blog, /users/, /account, etc. React just provides a way to create components but we extend its functionalities by
+ adding routing in it with the support of external package like "Router Package".
+- Router Package parses the URL/path, reads the config provided by the user and renders/loads appropriate JSX/Component.
+- To download the Router package, use command: "npm install --save react-router-dom". "react-router-dom" wraps "react-router"
+  and uses it as a dependency.
+- When we switch pages within our application, it shouldn't reload the pages. For that, we use "Link" with "to" property.
+  .e.g. <Link to="/users"> Users </Link>. It internally creates an anchor tag(a href) and takes care of the routing without
+  reloading.
+- We get bunch of props in the component from the router like "history, match, etc". To pass those props to the lower order
+ components (which are just presentational/stateless) wrap those with "export default withRouter(component_name)".
+- Link property doesn't provide the css style property so instead of that we use "NavLink" which comes with a default css
+  class which we can override and add our own styles to it. It also provides other properties like activeClassName,
+  activeStyle, etc.
+- We can do routing programmatically by using the methods provided by history in the props. e.g. this.props.history.push.
+- We can do nested routing in the component through which we can route to certain component from our component. For that,
+  our component or the parent component should be wrapped with "<BrowserRouter>" component.
+- The way to create nested routes is to get the base route dynamically by using "this.props.match.url" and then append the
+  nested route part of the url to it.
+- You can redirect to different routes by importing "Redirect" property from the react-dom and use it like
+  "<Redirect from="/" to="/url"/>". It doesn't render content, it just changes the url. We can also use Redirect conditionally.
+- Better way to redirecting is using "history" prop by pushing the page to be redirected to into it. e.g.
+  "this.props.history.push('/posts')". Push basically pushes the page into the stack. We can also use "this.props.history.replace('/posts')"
+- Routing can also be used as Guards.e.g. If the user is not authenticated, you can use redirect/replace to route the user to some other page.
+- 404 cases can also be handled using Redirects. You can also handle such cases with only Route property.
+  e.g "<Route render={() => <h1> Not Found</h1> />".
+- Lazy loading is the technique to load components lazily.
+    (To learn more, watch this: https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/8138598#content)
+
+
+
+
+
+
+
 
 
 
