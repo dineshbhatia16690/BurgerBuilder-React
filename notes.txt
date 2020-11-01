@@ -211,6 +211,16 @@ Removing Old Interceptors:
     (To learn more, watch this: https://www.udemy.com/course/react-the-complete-guide-incl-redux/learn/lecture/8138598#content)
 
 
+******************************** Adding Routing to the project ********************************
+Building the Checkout container:
+- Added a checkout container to display the checkout page which is shown when the user clicks "continue" on the checkout.
+- Checkout page shows the summary of the burger and a cancel and continue button.
+- The challenge is that to show the summary we need to have the state which has the ingredients of the burger to show in
+  summary page which for now in this commit is hardcoded but will be done using Routing.
+  (Check changes ...)
+
+
+
 
 
 
