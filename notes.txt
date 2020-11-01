@@ -224,13 +224,15 @@ Setting Up Routes and Routing:
 - Install the react-router-dom package using command "npm install --save react-router-dom"
 - Set up the route paths for burger builder and checkout components.
 
-Navigating the Checkout package:
+Navigating to the Checkout page:
 - The special props like history, match, etc are only available to the directly routed components not to the components
   nested inside these components. To access these props in the nested components we need to export the nested components
   using "withRouter".
 - Added a temporary routing from purchaseHandler to the checkout page.
   (Check code changes ...)
 
+Navigating Back and to the next page:
+- Bind methods to the checkout summary "cancel" and "continue" buttons.
 
 
 
