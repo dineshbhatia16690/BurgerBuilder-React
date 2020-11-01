@@ -234,6 +234,11 @@ Navigating to the Checkout page:
 Navigating Back and to the next page:
 - Bind methods to the checkout summary "cancel" and "continue" buttons.
 
+Passing Ingredients via query param:
+- Passing the ingredients from the burger builder to the Checkout component using query params
+- Encoded while sending and extracted in the componentDidMount hook of the Checkout component
+  (Check code changes ... )
+
 
 
 
