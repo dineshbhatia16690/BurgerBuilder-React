@@ -49,6 +49,7 @@ class BurgerBuilder extends Component {
     }
 
     addIngredientsHandler = (type) => {
+        console.log(this.props);
         const updatedIngredientCount = this.state.ingredients[type] + 1;
         const updatedIngredients = { ...this.state.ingredients};
         updatedIngredients[type] = updatedIngredientCount;
@@ -86,7 +87,7 @@ class BurgerBuilder extends Component {
 
     purchaseContinueHandler = () => {
         // alert("Order Continued ...");
-        this.setState({loading: true})
+        /*this.setState({loading: true})
         const customerOrder = {
             ingredients: this.state.ingredients,
             // price ideally should be calculated on the server side, so that no one can tweak with it in between the http call
@@ -109,7 +110,10 @@ class BurgerBuilder extends Component {
             .then(response => {
                 this.setState({loading: false, purchasing: false})
             })
-            .catch(error => {this.setState({loading: false, purchasing: true})});
+            .catch(error => {this.setState({loading: false, purchasing: true})});*/
+        // just to show the routing
+        this.props.history.push('/checkout');
+
     }
 
     render() {

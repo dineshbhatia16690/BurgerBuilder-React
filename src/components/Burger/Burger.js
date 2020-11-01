@@ -1,20 +1,21 @@
 import React from "react";
 
+import { withRouter } from 'react-router-dom';
 import classes from './Burger.css';
 import BurgerIngredient from './BurgerIngredients/BurgerIngredients'
 
 const burger = (props) => {
 
+    console.log(props);
+
     let transformedIngredients = Object.keys(props.ingredients)
         .map(ingKey => {
-            console.log(ingKey);
         return [...Array(props.ingredients[ingKey])].map((_, idx) => {
             return <BurgerIngredient key={ingKey+idx} type = {ingKey} />
         });
     }).reduce((currArray, element) => {
         return currArray.concat(element);
         }, []);
-    console.log(transformedIngredients);
 
     if (transformedIngredients.length === 0) {
         transformedIngredients = <p>Please add ingredients!</p>
@@ -28,5 +29,4 @@ const burger = (props) => {
     );
 }
 
-export default burger;
-/* eslint-disable-line */
+export default withRouter(burger);
