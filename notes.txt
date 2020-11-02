@@ -239,6 +239,18 @@ Passing Ingredients via query param:
 - Encoded while sending and extracted in the componentDidMount hook of the Checkout component
   (Check code changes ... )
 
+Navigating to the Customer Data component:
+- Added a new component that shows a form to add the customer details for the order
+- Added navigation to the CustomerData component
+- Added styling to the CustomerData component
+
+
+
+
+
+
+
+
 
 
 
