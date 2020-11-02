@@ -253,6 +253,9 @@ Order submission and passing data between pages:
   down to Customer data to make routing work after the axios call, same could have also been achieved using withRouter)
   (Check code changes ...)
 
+Adding an Orders Page:
+- Added a dummy order page and route.
+
 
 
 
