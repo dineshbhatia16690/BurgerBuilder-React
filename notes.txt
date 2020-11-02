@@ -244,6 +244,14 @@ Navigating to the Customer Data component:
 - Added navigation to the CustomerData component
 - Added styling to the CustomerData component
 
+Order submission and passing data between pages:
+- Added the logic for submitting the order, moved it to an order handler in CustomerData page.
+- Used render property in Checkout component to pass props like ingredients, price and all the props to the CustomerData
+  component.
+- Added spinner to the form during the axios call
+- Added routing from the order page to the '/' page after the order is placed (used props that come with Route to pass
+  down to Customer data to make routing work after the axios call, same could have also been achieved using withRouter)
+  (Check code changes ...)
 
 
 

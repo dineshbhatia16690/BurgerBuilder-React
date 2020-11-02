@@ -86,38 +86,12 @@ class BurgerBuilder extends Component {
     }
 
     purchaseContinueHandler = () => {
-        // alert("Order Continued ...");
-        /*this.setState({loading: true})
-        const customerOrder = {
-            ingredients: this.state.ingredients,
-            // price ideally should be calculated on the server side, so that no one can tweak with it in between the http call
-            price: this.state.totalPrice,
-            customer: {
-                name: 'Dinesh',
-                email: 'test@test.com',
-                address: {
-                    country: 'USA',
-                    street: 'test street',
-                    zipCode: '12345'
-                }
-            },
-            deliveryMethod: 'fastest'
-        }
-        // firebase provides mongo like db, so all we have to provide is '/endpoint-name.json' to the base URL
-        // and a tree like structure will be created in firebase. Keep in mind '.json' is required, its unique to firebase.
-
-        axios.post('/orders.json', customerOrder)
-            .then(response => {
-                this.setState({loading: false, purchasing: false})
-            })
-            .catch(error => {this.setState({loading: false, purchasing: true})});*/
-        // just to show the routing
-
         const queryParams = [];
         for (let i in this.state.ingredients) {
             // to encode the values and make it in a form "salad=1",...
             queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
         }
+        queryParams.push('price=' + this.state.totalPrice);
         // to concatenate values of the query params array separated by &
         // to notice the change, check URL after pressing continue
         const queryString = queryParams.join('&');
