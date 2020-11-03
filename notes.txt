@@ -256,7 +256,8 @@ Order submission and passing data between pages:
 Adding an Orders Page:
 - Added a dummy order page and route.
 
-
+Implementing Navigation Links:
+- Implemented NavLink to link to the orders page.
 
 
 
