@@ -16,7 +16,7 @@ const order = (props) => {
 
     const ingredientOutput = transformedIngredients.map(ig => {
         return <span className={classes.SpanStyle} key={ig.name}> {ig.name}:{ig.quantity}</span>
-    })
+    });
     return (
         <div className={classes.Order}>
             <p>Ingredients: {ingredientOutput}</p>

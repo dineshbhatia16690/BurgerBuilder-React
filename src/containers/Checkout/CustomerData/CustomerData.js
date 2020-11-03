@@ -41,7 +41,6 @@ class CustomerData extends Component {
         // firebase provides mongo like db, so all we have to provide is '/endpoint-name.json' to the base URL
         // and a tree like structure will be created in firebase. Keep in mind '.json' is required, its unique to firebase.
 
-        console.log('Here is customer order: ', customerOrder);
         axios.post('/orders.json', customerOrder)
             .then(response => {
                 this.setState({loading: false})
