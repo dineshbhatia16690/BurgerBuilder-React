@@ -259,6 +259,10 @@ Adding an Orders Page:
 Implementing Navigation Links:
 - Implemented NavLink to link to the orders page.
 
+Fetching Orders:
+- Implemented logic in Orders.js to fetch the orders from Firebase.
+- Wrapped the Orders.js with globalErrorHandler to handle any errors.
+
 
 
 
