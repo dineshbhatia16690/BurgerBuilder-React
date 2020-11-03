@@ -263,7 +263,11 @@ Fetching Orders:
 - Implemented logic in Orders.js to fetch the orders from Firebase.
 - Wrapped the Orders.js with globalErrorHandler to handle any errors.
 
-
+Outputting the orders:
+- Fixed a bug where price was not showing up.
+- Outputted the order component and gave it some styling (make sure to use className= for giving styles using class and
+  style={{}} for giving inline styles).
+  (Check code changes ...)
 
 
 

@@ -26,7 +26,7 @@ class CustomerData extends Component {
             ingredients: this.props.ingredients,
             // price ideally should be calculated on the server side,
             // so that no one can tweak with it in between the http call
-            price: this.props.totalPrice,
+            price: this.props.price,
             customer: {
                 name: 'Dinesh',
                 email: 'test@test.com',
@@ -41,6 +41,7 @@ class CustomerData extends Component {
         // firebase provides mongo like db, so all we have to provide is '/endpoint-name.json' to the base URL
         // and a tree like structure will be created in firebase. Keep in mind '.json' is required, its unique to firebase.
 
+        console.log('Here is customer order: ', customerOrder);
         axios.post('/orders.json', customerOrder)
             .then(response => {
                 this.setState({loading: false})

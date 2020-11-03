@@ -20,7 +20,7 @@ class Checkout extends Component {
         for (let param of query.entries()) {
             // entries are in form of ['salad', '1']
             if (param[0] === 'price') {
-                price = param[0];
+                price = param[1];
             } else {
                 // added + sign to convert the value to a number
                 ingredientsFromBurgerBuilder[param[0]] = +param[1];
