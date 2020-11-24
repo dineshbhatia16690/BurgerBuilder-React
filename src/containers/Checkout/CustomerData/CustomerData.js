@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 
 import classes from './CustomerData.css';
 import Button from '../../../components/UI/Button/Button';
@@ -23,7 +24,7 @@ class CustomerData extends Component {
 
         this.setState({loading: true})
         const customerOrder = {
-            ingredients: this.props.ingredients,
+            ingredients: this.props.ings,
             // price ideally should be calculated on the server side,
             // so that no one can tweak with it in between the http call
             price: this.props.price,
@@ -75,4 +76,11 @@ class CustomerData extends Component {
     }
 }
 
-export default CustomerData;
+const mapStateToProps = state => {
+    return {
+        ings: state.ingredients,
+        price: state.totalPrice
+    }
+}
+
+export default connect(mapStateToProps)(CustomerData);

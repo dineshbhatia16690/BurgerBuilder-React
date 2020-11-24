@@ -319,6 +319,17 @@ Working on the totalPrice calculation:
 
 Redux and UI state:
 - Enabled the "ORDER NOW" button by checking the global state's price.
+- Check how much our state is shrunk in BurgerBuilder component, we can always put everything from state into the redux store
+  and access from there but that is not recommended since the left overs are burger builder specific state elements.
+
+Adjusting Checkout and CustomerData components:
+- Connected both Checkout and CustomerData components with redux store to access the state.
+- Removed query params used in BurgerBuilder to pass ingredients to Checkout.
+- Used the same name as ings and price in the mapStateToProps to keep the consistency, however any name can be used since
+  that is local to the file.
+- Both Checkout and CustomerDate are not dispatching any methods so they don't have mapDispatchToProps.
+- connect function expects arguments in the order (mapStateToProps, mapDispatchToProps) so when there is only mapDispatchToProps
+  we will have to call connect like 'connect(null, mapDispatchToProps)'.
 
 
 
