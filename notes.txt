@@ -270,6 +270,23 @@ Outputting the orders:
   (Check code changes ...)
 
 
+******************************** What is Redux? ********************************
+
+Redux is a global store that is used for state management. State is basically the observable properties that control the behavior of the
+component. E.g. State is:
+    - Ingredients in our burger application
+    - Is User authenticated?
+    - Is Modal(Side drop) open?
+    etc.
+
+- Redux Flow works in 3 sections starting from Component dispatching an Action(add, delete, update). The Action then
+  reaches Reducers which are pure, sync functions that receive an action and has two params: type of action and currentState,
+  and return the updated state to the user. Reducers then updates the Central store with the updated state.
+- Read flow in redux works using subscription model. Everytime there is an update in the central store triggers a notification
+  to the subscribed components and passes updated state as props.
+- To hook up redux store with react application we need to install "react-redux" package and from that use "Provider" component
+  and wrap our App component with Provider passing "store={store_name}" prop with it.
+- Actions can be dispatched which are not even handled in reducer, for that always return currentState in the reducer at the end.
 
 
 
