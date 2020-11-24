@@ -304,6 +304,16 @@ Finishing the Reducer for Ingredients:
   so, it should be [action.ingredientName].
 - As we are gonna be adding and removing ingredients one by one so we amend [action.ingredientName] +- 1
 
+Connecting the Burger Builder container to our store:
+- Created mapStateToProps to get the state from the redux store as props and mapDispatchToProps to access methods to change
+  the redux store state as props.
+- The methods in mapDispatchToProps take ingName as an argument which is passed as ctrl.type in the BuildControls component.
+- Removed componentDidMount from BurgerBuilder since we are now loading the starting ingredients from redux store.
+- Finally we use the connect method in which we pass mapStateToProps and mapDispatchToProps and also pass our BurgerBuilder
+  component wrapped with higher order Error handling component.
+- The totalPrice is still yet to be taken care of.
+
+
 
 
 

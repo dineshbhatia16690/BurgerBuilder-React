@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import { connect } from "react-redux";
 
 import Aux from '../../hoc/Aux/Aux';
 import Burger from '../../components/Burger/Burger'
@@ -8,6 +9,7 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import axios from '../../axios-orders';
 import GlobalErrorHandler from '../../GlobalErrorHandler/GlobalErrorHandler';
+import * as actionTypes from '../../store/actions';
 
 const INGREDIENT_ADD_ON_PRICE = {
     salad: 0.5,
@@ -19,24 +21,11 @@ const INGREDIENT_ADD_ON_PRICE = {
 class BurgerBuilder extends Component {
 
     state = {
-        // we started the ingredients with null since we were making an axios call
-        // in componentDidMount to get the starting ingredients
-        ingredients : null,
         totalPrice: 4,
         purchasable: false,
         purchasing: false,
         loading: false,
         error: null
-    }
-
-    componentDidMount() {
-        // commenting this code to set up to load starting ingredients from redux store
-        /*axios.get('https://react-burger-builder092019.firebaseio.com/ingredients.json')
-            .then(response => {
-                this.setState({ingredients: response.data});
-            }).catch(error => {
-                this.setState({error: error});
-        });*/
     }
 
     // the reason we are passing totalPrice in this and not checking from state is
@@ -106,7 +95,7 @@ class BurgerBuilder extends Component {
     }
 
     render() {
-        const disableButtonInfo = {...this.state.ingredients};
+        const disableButtonInfo = {...this.props.ings};
         for(let ingredientType in disableButtonInfo) {
             disableButtonInfo[ingredientType] = disableButtonInfo[ingredientType] <=0;
         }
@@ -116,13 +105,13 @@ class BurgerBuilder extends Component {
             orderSummary = <Spinner />;
         }
         let burger = this.state.error? <p>Ingredients can't be loaded!</p>: <Spinner />;
-        if (this.state.ingredients) {
+        if (this.props.ings) {
             burger =(
                 <Aux>
-                    <Burger ingredients = {this.state.ingredients}/>
+                    <Burger ingredients = {this.props.ings}/>
                     <BuilderControls
-                    ingredientsAdded={this.addIngredientsHandler}
-                    ingredientsRemoved={this.removeIngredientsHandler}
+                    ingredientsAdded={this.props.onIngredientAdded}
+                    ingredientsRemoved={this.props.onIngredientRemoved}
                     disableButton={disableButtonInfo}
                     purchasable={this.state.purchasable}
                     ordered={this.purchaseHandler}
@@ -132,7 +121,7 @@ class BurgerBuilder extends Component {
 
             orderSummary =
                 <OrderSummary
-                    ingredients={this.state.ingredients}
+                    ingredients={this.props.ings}
                     orderCancelled={this.purchaseCancelHandler}
                     orderContinued={this.purchaseContinueHandler}
                     totalPrice={this.state.totalPrice}/>
@@ -149,4 +138,18 @@ class BurgerBuilder extends Component {
     }
 }
 
-export default GlobalErrorHandler(BurgerBuilder, axios);
+const mapStateToProps = state => {
+    return {
+        // ings is we will access here and state.ingredients is from the redux store
+        ings: state.ingredients
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onIngredientAdded: (ingName) => dispatch({type: actionTypes.ADD_INGREDIENT, ingredientName: ingName}),
+        onIngredientRemoved: (ingName) => dispatch({type: actionTypes.REMOVE_INGREDIENT, ingredientName: ingName})
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(GlobalErrorHandler(BurgerBuilder, axios));
