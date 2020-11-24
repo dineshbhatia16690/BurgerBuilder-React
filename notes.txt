@@ -317,7 +317,8 @@ Working on the totalPrice calculation:
 - Calculating the price in reducer.
 - Remove methods put to calculate the totalPrice in BurgerBuilder
 
-
+Redux and UI state:
+- Enabled the "ORDER NOW" button by checking the global state's price.
 
 
 

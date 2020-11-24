@@ -14,23 +14,9 @@ import * as actionTypes from '../../store/actions';
 class BurgerBuilder extends Component {
 
     state = {
-        totalPrice: 4,
-        purchasable: false,
         purchasing: false,
         loading: false,
         error: null
-    }
-
-    // the reason we are passing totalPrice in this and not checking from state is
-    // because when we add or remove the ingredients, state may not have the most updated
-    // totalPrice.
-    updatePurchaseState(totalPrice) {
-        if (totalPrice > 4) {
-            this.setState({purchasable: true});
-        }
-        else {
-            this.setState({purchasable: false});
-        }
     }
 
     // we have to create an arrow function here since it has access to state through "this" keyword
@@ -79,7 +65,7 @@ class BurgerBuilder extends Component {
                     ingredientsAdded={this.props.onIngredientAdded}
                     ingredientsRemoved={this.props.onIngredientRemoved}
                     disableButton={disableButtonInfo}
-                    purchasable={this.state.purchasable}
+                    purchasable= { this.props.price > 4 }
                     ordered={this.purchaseHandler}
                     currentPrice={this.props.price}/>
                 </Aux>
