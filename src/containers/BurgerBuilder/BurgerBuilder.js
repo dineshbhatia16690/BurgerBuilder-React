@@ -11,13 +11,6 @@ import axios from '../../axios-orders';
 import GlobalErrorHandler from '../../GlobalErrorHandler/GlobalErrorHandler';
 import * as actionTypes from '../../store/actions';
 
-const INGREDIENT_ADD_ON_PRICE = {
-    salad: 0.5,
-    cheese: 0.7,
-    meat: 1,
-    bacon: 1.2
-}
-
 class BurgerBuilder extends Component {
 
     state = {
@@ -38,33 +31,6 @@ class BurgerBuilder extends Component {
         else {
             this.setState({purchasable: false});
         }
-    }
-
-    addIngredientsHandler = (type) => {
-        console.log(this.props);
-        const updatedIngredientCount = this.state.ingredients[type] + 1;
-        const updatedIngredients = { ...this.state.ingredients};
-        updatedIngredients[type] = updatedIngredientCount;
-
-        const totalPriceUpdated = this.state.totalPrice + INGREDIENT_ADD_ON_PRICE[type];
-        this.setState({totalPrice: totalPriceUpdated, ingredients: updatedIngredients});
-        this.updatePurchaseState(totalPriceUpdated);
-    }
-
-    removeIngredientsHandler = (type) => {
-        const currentIngredientCount = this.state.ingredients[type];
-        if (currentIngredientCount < 1) {
-            alert("Please add the ingredients first!");
-            return;
-        }
-
-        const updatedIngredientsCount = this.state.ingredients[type] - 1;
-        const updatedIngredients = { ...this.state.ingredients};
-        updatedIngredients[type] = updatedIngredientsCount;
-
-        const totalPriceUpdated = this.state.totalPrice - INGREDIENT_ADD_ON_PRICE[type];
-        this.setState({totalPrice: totalPriceUpdated, ingredients: updatedIngredients});
-        this.updatePurchaseState(totalPriceUpdated)
     }
 
     // we have to create an arrow function here since it has access to state through "this" keyword
@@ -115,7 +81,7 @@ class BurgerBuilder extends Component {
                     disableButton={disableButtonInfo}
                     purchasable={this.state.purchasable}
                     ordered={this.purchaseHandler}
-                    currentPrice={this.state.totalPrice}/>
+                    currentPrice={this.props.price}/>
                 </Aux>
             );
 
@@ -124,7 +90,7 @@ class BurgerBuilder extends Component {
                     ingredients={this.props.ings}
                     orderCancelled={this.purchaseCancelHandler}
                     orderContinued={this.purchaseContinueHandler}
-                    totalPrice={this.state.totalPrice}/>
+                    totalPrice={this.props.price}/>
 
         }
         return (
@@ -141,7 +107,9 @@ class BurgerBuilder extends Component {
 const mapStateToProps = state => {
     return {
         // ings is we will access here and state.ingredients is from the redux store
-        ings: state.ingredients
+        // so fetching the ingredients and totalPrice from global state or redux store.
+        ings: state.ingredients,
+        price: state.totalPrice
     }
 }
 

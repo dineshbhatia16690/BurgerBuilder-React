@@ -313,6 +313,12 @@ Connecting the Burger Builder container to our store:
   component wrapped with higher order Error handling component.
 - The totalPrice is still yet to be taken care of.
 
+Working on the totalPrice calculation:
+- Calculating the price in reducer.
+- Remove methods put to calculate the totalPrice in BurgerBuilder
+
+
+
 
 
 
