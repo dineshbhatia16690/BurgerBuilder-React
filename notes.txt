@@ -290,11 +290,20 @@ component. E.g. State is:
 
 
 ******************************** Adding Redux to the project ********************************
+
+Basic Redux Set Up:
 - Install redux in the package using the command: npm install --save redux react-redux
 - Set up add and remove action types.
 - Wrap the App component with Provider component. The Provider component wrapping the BrowserRouter component creates a little
   confusion since both of these sets properties on props.
 - Setting the store property on provider component connects your store to the redux store.
+
+Finishing the Reducer for Ingredients:
+- Added part of reducer logic to add and remove ingredients.
+- The ingredient we need to amend we can use [] to extract that ingredient which we are supposed to get with the action
+  so, it should be [action.ingredientName].
+- As we are gonna be adding and removing ingredients one by one so we amend [action.ingredientName] +- 1
+
 
 
 

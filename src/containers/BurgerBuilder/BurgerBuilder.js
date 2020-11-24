@@ -19,6 +19,8 @@ const INGREDIENT_ADD_ON_PRICE = {
 class BurgerBuilder extends Component {
 
     state = {
+        // we started the ingredients with null since we were making an axios call
+        // in componentDidMount to get the starting ingredients
         ingredients : null,
         totalPrice: 4,
         purchasable: false,
@@ -28,12 +30,13 @@ class BurgerBuilder extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://react-burger-builder092019.firebaseio.com/ingredients.json')
+        // commenting this code to set up to load starting ingredients from redux store
+        /*axios.get('https://react-burger-builder092019.firebaseio.com/ingredients.json')
             .then(response => {
                 this.setState({ingredients: response.data});
             }).catch(error => {
                 this.setState({error: error});
-        });
+        });*/
     }
 
     // the reason we are passing totalPrice in this and not checking from state is
