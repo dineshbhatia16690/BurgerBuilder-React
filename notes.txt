@@ -281,9 +281,13 @@ component. E.g. State is:
 
 - Redux Flow works in 3 sections starting from Component dispatching an Action(add, delete, update). The Action then
   reaches Reducers which are pure, sync functions that receive an action and has two params: type of action and currentState,
-  and return the updated state to the user. Reducers then updates the Central store with the updated state.
+  and return the updated state to the store.
+- The only way to update a state inside a store is to dispatch an action and define a reducer function to perform tasks
+  based on the given actions. Once dispatched, the action goes inside the reducer functions which performs the tasks
+  and return the updated state to the store. This is what Redux is all about
 - Read flow in redux works using subscription model. Everytime there is an update in the central store triggers a notification
   to the subscribed components and passes updated state as props.
+- To access the redux store to get the state, the component is connected to the redux store using connect method.
 - To hook up redux store with react application we need to install "react-redux" package and from that use "Provider" component
   and wrap our App component with Provider passing "store={store_name}" prop with it.
 - Actions can be dispatched which are not even handled in reducer, for that always return currentState in the reducer at the end.
