@@ -346,6 +346,19 @@ Adjusting Checkout and CustomerData components:
 - Add redux devtools as a chrome extension and pass the middleware to the enhancer which basically compose the redux devtools
   for the middleware, are also called enhancers for the middleware. This extension is quite handy to access the store at
   different instances.
+- We can create all the actions in an actionCreater file so to avoid creating them in the components.
+- To run our actions asynchronously, we need to install another package named as redux-thunk which allows actionCreaters
+  to not return action itself but return a function which will eventually dispatch an action. To install, run:
+  `npm install --save redux-thunk`
+- Redux Thunk is a middleware that lets you call action creators that return a function instead of an action object. That
+  function receives the store's dispatch method, which is then used to dispatch regular synchronous actions inside the
+  function's body once the asynchronous operations have been completed.
+- Redux-thunk passes another argument `getState` with `dispatch` to the async code. Sometimes we need to access
+  the state in our async code before dispatching the sync action toward the reducer, so we can use the getState() to access
+  the state before updating.
+- To learn more on how to make the reducer, actionCreater or any redux related code leaner, go to `redux.js.org` and checkout
+  the best patterns suggested there.
+
 
 
 
