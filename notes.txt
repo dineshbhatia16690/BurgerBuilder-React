@@ -336,9 +336,16 @@ Adjusting Checkout and CustomerData components:
   we will have to call connect like 'connect(null, mapDispatchToProps)'.
 
 
+****************************************** Advanced Redux ******************************************
 
-
-
+- Middleware: It provides a third-party extension point between dispatching an action, and the moment it reaches the
+  reducer. People use Redux middleware for logging, crash reporting, talking to an asynchronous API, routing, and more.
+  It is also used for accessing the latest state of the app. We need to import `applyMiddleware` and pass the middleware to
+  it.e.g. logger, etc. You can pass as many middlewares as you want but they will be executed in the order they are passed.
+  `applyMiddleware(logger, ...)` is then passed as 2nd argument to createStore call.
+- Add redux devtools as a chrome extension and pass the middleware to the enhancer which basically compose the redux devtools
+  for the middleware, are also called enhancers for the middleware. This extension is quite handy to access the store at
+  different instances.
 
 
 
