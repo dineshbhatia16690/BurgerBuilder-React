@@ -19,6 +19,10 @@ class BurgerBuilder extends Component {
         purchasing: false
     }
 
+    componentDidMount() {
+        this.props.onInitIngredients();
+    }
+
     // we have to create an arrow function here since it has access to state through "this" keyword
     // In normal function this would not work(purchaseHandler() {..code})
     purchaseHandler = () => {
@@ -34,13 +38,14 @@ class BurgerBuilder extends Component {
     }
 
     render() {
+        console.log('ingredients: ', this.props.ings);
         const disableButtonInfo = {...this.props.ings};
         for(let ingredientType in disableButtonInfo) {
             disableButtonInfo[ingredientType] = disableButtonInfo[ingredientType] <=0;
         }
 
         let orderSummary = null;
-        let burger = this.state.error? <p>Ingredients can't be loaded!</p>: <Spinner />;
+        let burger = this.props.error? <p>Ingredients can't be loaded!</p>: <Spinner />;
         if (this.props.ings) {
             burger =(
                 <Aux>
@@ -78,14 +83,16 @@ const mapStateToProps = state => {
         // ings is we will access here and state.ingredients is from the redux store
         // so fetching the ingredients and totalPrice from global state or redux store.
         ings: state.ingredients,
-        price: state.totalPrice
+        price: state.totalPrice,
+        error: state.error
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onIngredientAdded: (ingName) => dispatch(burgerBuilderActions.addIngredient(ingName)),
-        onIngredientRemoved: (ingName) => dispatch(burgerBuilderActions.removeIngredient(ingName))
+        onIngredientRemoved: (ingName) => dispatch(burgerBuilderActions.removeIngredient(ingName)),
+        onInitIngredients: () => dispatch(burgerBuilderActions.initIngredients())
     }
 }
 

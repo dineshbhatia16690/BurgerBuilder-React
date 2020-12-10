@@ -33,6 +33,18 @@ const burgerBuilder = (state = initialState, action) => {
                 },
                 totalPrice: state.totalPrice - INGREDIENT_ADD_ON_PRICE[action.ingredientName]
             };
+        case actionsTypes.SET_INGREDIENTS:
+            console.log('ingredients are in reducer: ', action.ingredients);
+            return {
+                ...state,
+                ingredients: action.ingredients,
+                error: false
+            };
+        case actionsTypes.FETCH_INGREDIENTS_FAILED:
+            return {
+                ...state,
+                error: true
+            }
         default:
             return state;
     }

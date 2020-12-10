@@ -377,6 +377,14 @@ Executing Asynchronous code and fetching ingredients asynchronously:
 - Add the fetch failed action creator too to handle the error if the async call fails.
 - Remove the error and loading from state in burgerBuilder and move it to redux reducer.
 
+Initializing ingredients in the BurgerBuilder:
+- Handled setIngredients and fetchIngredients actions in reducer
+- Updated burgerBuilder.js to dispatch these actions
+- Make sure after the async call in the action creator we always dispatch the corresponding actions from either .then or .catch.
+
+
+
+
 
 
 

@@ -19,16 +19,18 @@ export const setIngredients = (ingredients) => {
     return {
         type: actionTypes.SET_INGREDIENTS,
         ingredients: ingredients
-    }
-}
+    };
+};
 
 export const initIngredients = () => {
     return dispatch => {
-        axiosInstance.get('/ingredients.json').then(
-            response => {
-                setIngredients(response);
-            }
-        ).catch(err => {
+        // make sure firebase has default ingredients on /ingredients endpoint
+        axiosInstance.get('/ingredients.json')
+            .then( response => {
+                console.log('response is :', response.data);
+                dispatch(setIngredients(response.data));
+            })
+            .catch(err => {
             dispatch(fetchIngredientsFailed());
         });
     };
