@@ -7,11 +7,11 @@ import { createStore, applyMiddleware, compose } from "redux";
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import reducer from "./store/reducer";
+import burgerBuilder from "./store/reducers/burgerBuilder";
 
 
 // Middleware example
-const logger = store => {
+/*const logger = store => {
     return next => {
         return action => {
             console.log('[Middleware] Dispatching: ', action);
@@ -25,7 +25,8 @@ const logger = store => {
 // for redux devtool
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(reducer, composeEnhancers(applyMiddleware(logger)));
+const store = createStore(burgerBuilder, composeEnhancers(applyMiddleware(logger)));*/
+const store = createStore(burgerBuilder, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 const app = (
     <Provider store={store}>
