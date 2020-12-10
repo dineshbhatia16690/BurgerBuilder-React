@@ -370,6 +370,12 @@ Creating the action creators:
 - Added add and remove ingredient action creators in burgerBuilder.
 - Called those action creators instead from burgerBuilder.js
 
+Executing Asynchronous code and fetching ingredients asynchronously:
+- Install redux thunk using command 'npm install --save redux-thunk'.
+- Add action creators for initializing and setting the ingredients.
+- Move the async call to fetch the ingredients in the action creators to dispatch it to reducer with the data
+- Add the fetch failed action creator too to handle the error if the async call fails.
+- Remove the error and loading from state in burgerBuilder and move it to redux reducer.
 
 
 

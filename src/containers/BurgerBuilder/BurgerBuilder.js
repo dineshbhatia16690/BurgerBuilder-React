@@ -16,9 +16,7 @@ import * as burgerBuilderActions from '../../store/actions/index';
 class BurgerBuilder extends Component {
 
     state = {
-        purchasing: false,
-        loading: false,
-        error: null
+        purchasing: false
     }
 
     // we have to create an arrow function here since it has access to state through "this" keyword
@@ -42,9 +40,6 @@ class BurgerBuilder extends Component {
         }
 
         let orderSummary = null;
-        if (this.state.loading) {
-            orderSummary = <Spinner />;
-        }
         let burger = this.state.error? <p>Ingredients can't be loaded!</p>: <Spinner />;
         if (this.props.ings) {
             burger =(
@@ -59,7 +54,6 @@ class BurgerBuilder extends Component {
                     currentPrice={this.props.price}/>
                 </Aux>
             );
-
             orderSummary =
                 <OrderSummary
                     ingredients={this.props.ings}
