@@ -366,6 +366,11 @@ Preparing the Folder Structure:
 - Created burgerBuilder and order actions and reducers file.
 - Updated index.js file to accommodate for redux dev tool.
 
+Creating the action creators:
+- Added add and remove ingredient action creators in burgerBuilder.
+- Called those action creators instead from burgerBuilder.js
+
+
 
 
 
