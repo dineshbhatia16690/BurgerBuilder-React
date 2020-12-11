@@ -8,12 +8,12 @@ import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import burgerBuilder from "./store/reducers/burgerBuilder";
+import burgerBuilderReducer from "./store/reducers/burgerBuilderReducer";
 
 // for redux devtool
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(burgerBuilder, composeEnhancers(applyMiddleware(thunk)));
+const store = createStore(burgerBuilderReducer, composeEnhancers(applyMiddleware(thunk)));
 
 const app = (
     <Provider store={store}>

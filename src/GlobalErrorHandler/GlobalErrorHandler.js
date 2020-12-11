@@ -9,7 +9,7 @@ const globalErrorHandler = (WrappedComponent, axios) => {
             error: null
         }
 
-        // We can't use componentDidMount hook cos that runs after the render cycle so have to use componentWillMount hook
+        // We can't use componentDidMount hook since that runs after the render cycle so have to use componentWillMount hook
         // or the constructor since if the get api call using axios fail our application will be broken and we will keep
         // seeing the spinner, to see that in action change this hook and remove .json from the get axios call
         componentWillMount() {

@@ -387,6 +387,24 @@ Changing the Order of our ingredients manually:
 - You can either adjust the labels of the ingredients to appear alphabetically or change the ingredients manually to set
   the default ordering. (for now I did the former)
 
+Adding Order Actions:
+- Added burger purchase success and failure actions in the order action creator
+
+Connecting Customer Data Container and Actions:
+- Connecting the customer data to dispatching the burger purchase action.
+- Shielded Customer data with Global error handler.
+
+The Order Reducer:
+- Added reducer for Order
+  (code not runnable yet)
+
+Redirect to improve UX:
+- If we try to reload the '/contact-data' page, it throws an error since the ingredients get refreshed to null and our loop
+  on the checkout tried to run on null ingredients. So to avoid we need to redirect to '/' page when the ingredients are null.
+- Added redirect on '/contact-data' page when the ingredients are null.
+
+
+
 
 
 

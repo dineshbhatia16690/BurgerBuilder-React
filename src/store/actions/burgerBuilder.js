@@ -40,4 +40,4 @@ export const fetchIngredientsFailed = () => {
     return {
         type: actionTypes.FETCH_INGREDIENTS_FAILED
     }
-}
+};

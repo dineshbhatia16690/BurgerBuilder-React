@@ -5,6 +5,8 @@ import classes from './CustomerData.css';
 import Button from '../../../components/UI/Button/Button';
 import axios from '../../../axios-orders';
 import Spinner from '../../../components/UI/Spinner/Spinner';
+import * as orderActions from '../../../store/actions/index';
+import GlobalErrorHandler from '../../../GlobalErrorHandler/GlobalErrorHandler';
 
 class CustomerData extends Component {
 
@@ -14,15 +16,13 @@ class CustomerData extends Component {
         address: {
             street: '',
             zipCode: ''
-        },
-        loading: false
+        }
     };
 
     orderPlaceHandler = (event) => {
         // to prevent the default behavior of the form(where this method is triggered from) which is to send a request
         event.preventDefault();
 
-        this.setState({loading: true})
         const customerOrder = {
             ingredients: this.props.ings,
             // price ideally should be calculated on the server side,
@@ -42,13 +42,7 @@ class CustomerData extends Component {
         // firebase provides mongo like db, so all we have to provide is '/endpoint-name.json' to the base URL
         // and a tree like structure will be created in firebase. Keep in mind '.json' is required, its unique to firebase.
 
-        axios.post('/orders.json', customerOrder)
-            .then(response => {
-                this.setState({loading: false})
-                this.props.history.push('/');
-            })
-            .catch(error => {this.setState({loading: false})});
-
+        this.props.onOrderPlace(customerOrder);
     }
 
     render() {
@@ -64,7 +58,7 @@ class CustomerData extends Component {
                     clicked={this.orderPlaceHandler}>ORDER</Button>
             </form>
         );
-        if (this.state.loading) {
+        if (this.props.loading) {
             form = <Spinner />;
         }
         return(
@@ -79,8 +73,16 @@ class CustomerData extends Component {
 const mapStateToProps = state => {
     return {
         ings: state.ingredients,
-        price: state.totalPrice
+        price: state.totalPrice,
+        loading: state.loading
     }
 }
 
-export default connect(mapStateToProps)(CustomerData);
+const mapDispatchToProps = dispatch => {
+    return {
+        onOrderPlace: (orderData) => dispatch(orderActions.burgerPurchase(orderData))
+    }
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(GlobalErrorHandler(CustomerData, axios));

@@ -13,7 +13,7 @@ const INGREDIENT_ADD_ON_PRICE = {
     bacon: 1.2
 }
 
-const burgerBuilder = (state = initialState, action) => {
+const burgerBuilderReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionsTypes.ADD_INGREDIENT:
             return {
@@ -51,4 +51,4 @@ const burgerBuilder = (state = initialState, action) => {
 
 };
 
-export default burgerBuilder;
+export default burgerBuilderReducer;
