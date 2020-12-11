@@ -382,6 +382,12 @@ Initializing ingredients in the BurgerBuilder:
 - Updated burgerBuilder.js to dispatch these actions
 - Make sure after the async call in the action creator we always dispatch the corresponding actions from either .then or .catch.
 
+Changing the Order of our ingredients manually:
+- The reason salad is added at the bottom is due to firebase having the ingredients alphabetically.
+- You can either adjust the labels of the ingredients to appear alphabetically or change the ingredients manually to set
+  the default ordering. (for now I did the former)
+
+
 
 
 
